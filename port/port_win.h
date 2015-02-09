@@ -31,7 +31,10 @@
 #ifndef STORAGE_LEVELDB_PORT_PORT_WIN_H_
 #define STORAGE_LEVELDB_PORT_PORT_WIN_H_
 
-#define snprintf _snprintf
+#if !defined(_MSC_VER)
+	#define snprintf _snprintf
+#endif
+
 #define close _close
 #define fread_unlocked _fread_nolock
 
